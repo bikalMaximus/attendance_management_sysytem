@@ -42,8 +42,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     child: Column(children: [
                       TextField(
                         decoration: InputDecoration(
-                            hintText: "username",
-                            prefixIcon: Icon(Icons.person)),
+                            hintText: "email", prefixIcon: Icon(Icons.person)),
                       ),
                       SizedBox(
                         height: 10,

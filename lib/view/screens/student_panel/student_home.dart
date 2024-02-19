@@ -31,7 +31,7 @@ class StudentHome extends StatelessWidget {
             DrawerHeader(
               decoration: BoxDecoration(
                 color: CustomTextStyles.primaryColor,
-              ),
+              ), 
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
