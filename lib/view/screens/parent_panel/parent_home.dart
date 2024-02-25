@@ -5,18 +5,18 @@ import 'package:attendece_management_system/view/resources/routes/routes.dart';
 import 'package:attendece_management_system/view/screens/student_panel/student_report.dart';
 import 'package:flutter/material.dart';
 
-class StudentHome extends StatelessWidget {
-  const StudentHome({super.key});
+class ParentHome extends StatelessWidget {
+  const ParentHome({super.key});
 
   @override
   Widget build(BuildContext context) {
-    DateTime selectedDate = DateTime.now();
+    var passDate = DateTime.now();
     return Scaffold(
       appBar: AppBar(
         backgroundColor: CustomTextStyles.primaryColor,
         iconTheme: IconThemeData(color: Colors.white),
         title: Text(
-          "Student Panel",
+          "Parent Panel",
           style: CustomTextStyles.appBarText,
         ),
         centerTitle: true,
@@ -55,7 +55,7 @@ class StudentHome extends StatelessWidget {
               leading: Icon(Icons.account_circle),
               title: Text("Profile"),
               onTap: () {
-                Navigator.pushNamed(context, Routes.studentProfile);
+                Navigator.pushNamed(context, Routes.parentProfile);
               },
             ),
             ListTile(
@@ -66,9 +66,7 @@ class StudentHome extends StatelessWidget {
                     context,
                     MaterialPageRoute(
                         builder: (context) => StudentReport(
-                              passDate: "${selectedDate.toLocal()}"
-                                  .split(' ')[0]
-                                  .toString(),
+                              passDate: passDate.toString(),
                             )));
               },
             ),
@@ -97,7 +95,7 @@ class StudentHome extends StatelessWidget {
               leading: Icon(Icons.logout),
               title: Text("Log Out"),
               onTap: () {
-                Navigator.pushReplacementNamed(context, Routes.logOut);
+                Navigator.pushNamed(context, Routes.loginScreen);
               },
             ),
           ],
@@ -129,12 +127,9 @@ class StudentHome extends StatelessWidget {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => StudentReport(
-                            passDate: "${selectedDate.toLocal()}"
-                                .split(' ')[0]
-                                .toString(),
-                          ),
-                        ));
+                            builder: (context) => StudentReport(
+                                  passDate: passDate.toString(),
+                                )));
                   },
                   icon: Icon(
                     Icons.arrow_forward,

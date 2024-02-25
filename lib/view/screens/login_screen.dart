@@ -1,7 +1,8 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, avoid_unnecessary_containers, no_leading_underscores_for_local_identifiers, override_on_non_overriding_member, annotate_overrides
 
-import 'package:attendece_management_system/view/resources/text_styles.dart';
-import 'package:attendece_management_system/view/screens/student_panel/student_home.dart';
+import 'package:attendece_management_system/view/resources/custom_widgets/custom_buttons.dart';
+import 'package:attendece_management_system/view/resources/custom_widgets/text_styles.dart';
+import 'package:attendece_management_system/view/resources/routes/routes.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -69,31 +70,10 @@ class _LoginScreenState extends State<LoginScreen> {
                     ]),
                   ),
                   InkWell(
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => StudentHome()));
-                    },
-                    child: Container(
-                      height: 45,
-                      width: MediaQuery.of(context).size.width,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(15),
-                        color: CustomTextStyles.primaryColor,
-                      ),
-                      child: Center(
-                        child: Text(
-                          "Log In",
-                          style: TextStyle(
-                            fontSize: 18,
-                            color: Colors.white,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                      ),
-                    ),
-                  )
+                      onTap: () {
+                        Navigator.pushNamed(context, Routes.parentPanel);
+                      },
+                      child: CustomButton(buttonName: "Log In"))
                 ],
               ),
             ),

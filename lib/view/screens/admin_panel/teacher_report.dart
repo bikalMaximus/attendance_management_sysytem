@@ -3,17 +3,17 @@
 
 import 'dart:io';
 
-import 'package:attendece_management_system/view/screens/admin_panel/students_pdf.dart';
-import 'package:attendece_management_system/view/screens/student_panel/student_attendance_data.dart';
+import 'package:attendece_management_system/view/screens/admin_panel/teachers_pdf.dart';
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:pdf/widgets.dart' as pw;
 
 import 'package:attendece_management_system/view/resources/custom_widgets/text_styles.dart';
+import 'package:attendece_management_system/view/screens/admin_panel/teacher_attendance_data.dart';
 
-class StudentReport extends StatelessWidget {
+class TeacherReport extends StatelessWidget {
   String passDate;
-  StudentReport({
+  TeacherReport({
     Key? key,
     required this.passDate,
   }) : super(key: key);
@@ -25,7 +25,7 @@ class StudentReport extends StatelessWidget {
           iconTheme: IconThemeData(color: Colors.white),
           backgroundColor: CustomTextStyles.primaryColor,
           title: Text(
-            "Students Report",
+            "Teachers Report",
             style: CustomTextStyles.appBarText,
           ),
           centerTitle: true,
@@ -35,7 +35,7 @@ class StudentReport extends StatelessWidget {
             Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) => StudentAttendanceData(
+                    builder: (context) => TeacherAttendanceData(
                           passDate: passDate,
                         )));
           },
@@ -82,7 +82,7 @@ class StudentReport extends StatelessWidget {
     pdf.addPage(pw.Page(
       build: (pw.Context context) {
         return pw.Center(
-          child: StudentsPdf(),
+          child: TeachersPdf(),
         );
       },
     ));
@@ -90,7 +90,7 @@ class StudentReport extends StatelessWidget {
     // Get the directory for saving the PDF file
     final directory = await getApplicationDocumentsDirectory();
     final filePath =
-        '${directory.path}/($passDate)StudentsAttendanceReport.pdf';
+        '${directory.path}/($passDate)TeachersAttendanceReport.pdf';
     final file = File(filePath);
 
     // Save the PDF file
@@ -100,9 +100,9 @@ class StudentReport extends StatelessWidget {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: Text('Students Attendance report Generated'),
+        title: Text('Teachers Attendance report Generated'),
         content:
-            Text('The attendance report of students is saved at: $filePath'),
+            Text('The attendance report of teachers is saved at: $filePath'),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),
