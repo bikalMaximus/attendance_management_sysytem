@@ -3,8 +3,8 @@
 import 'package:attendece_management_system/view/resources/custom_widgets/text_styles.dart';
 import 'package:flutter/material.dart';
 
-class StudentProfile extends StatelessWidget {
-  const StudentProfile({super.key});
+class TeacherProfile extends StatelessWidget {
+  const TeacherProfile({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +13,7 @@ class StudentProfile extends StatelessWidget {
         iconTheme: IconThemeData(color: Colors.white),
         backgroundColor: CustomTextStyles.primaryColor,
         title: Text(
-          "Student Profile",
+          "Teacher Profile",
           style: CustomTextStyles.appBarText,
         ),
         centerTitle: true,
